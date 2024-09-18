@@ -1,5 +1,5 @@
-# NodeJS Puro!
-Esta aplicação foi feita somente em Nodejs, sem o uso de qualquer biblioteca externa
-#### Rotas:
-- `/`: Index da aplicação
-- `/newJson`: Retorna a data e hora atual
+# APIS com NodeJS
+Grupo de micro exemplos de aplicações com Nodejs
+#### Arquivos:
+ - `jwt`: Exemplo de uso do JWT
+ - `Nodejs`: Exemplo de aplicação nodejs 
