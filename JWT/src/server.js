@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true }))
 
 const SECRET = "12014012"
 
+//validator
 function verifyJWT(req, res, next){
 	const token = req.headers["x-acess-token"]
 	jwt.verify(token, SECRET, (err, decoded) => {
@@ -18,11 +19,13 @@ function verifyJWT(req, res, next){
 	})
 }
 
+//validator test
 app.get("/user", verifyJWT, (req, res, next) => {
 	console.log("Login feito com sucesso!")
 	res.json({id:1})
 })
 
+//refresh token
 app.get("/refresh", verifyJWT, (req, res, next) => {
 	const objUser = jwt.decode(req.headers['x-acess-token'])
 	const id = objUser.id 
@@ -35,6 +38,7 @@ app.get("/refresh", verifyJWT, (req, res, next) => {
 	res.status(200).json({ auth: true, token: newToken }).end()
 })
 
+//login 
 app.post("/login", (req, res) => {
 	if(req.body.name == "Richard" && req.body.password == "1234"){
 		const token = jwt.sign(
